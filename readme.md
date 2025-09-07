@@ -21,13 +21,6 @@ For too long, silence has shaped lives. Lolona gives young people the **clarity,
 
 ---
 
-## 🎥 Demo & Story  
-- 📺 [Demo Video]()  
-- 🎞️ [Story/Product Teaser]()  
-- 💻 [GitHub Repo]()  
-
----
-
 ## 🛠️ Tech Stack  
 
 ### User & Voice Interaction  
