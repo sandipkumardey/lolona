@@ -61,10 +61,7 @@ export const Navbar = () => {
             className="relative z-10"
           >
             <Link href="/" className="flex items-center">
-              <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-sm">L</span>
-              </div>
-              <span className="ml-2 text-lg font-semibold text-foreground">
+              <span className="text-5xl font-galada text-foreground">
                 Lolona
               </span>
             </Link>
