@@ -10,7 +10,7 @@ import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 
 const navItems = [
   { name: "Our Story", href: "#our-story" },
-  { name: "How it Works", href: "#how-it-works" },
+  { name: "How it Works", href: "#our-story" },
 ];
 
 export const Navbar = () => {
@@ -50,6 +50,22 @@ export const Navbar = () => {
         block: 'start',
       });
     }
+  };
+
+  const handleBookDemo = () => {
+    // Scroll to top of page where the email input is
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+    
+    // Focus on email input after scroll completes
+    setTimeout(() => {
+      const emailInput = document.querySelector('input[name="email"]') as HTMLInputElement;
+      if (emailInput) {
+        emailInput.focus();
+      }
+    }, 800); // Wait for scroll animation to complete
   };
 
   return (
@@ -111,7 +127,7 @@ export const Navbar = () => {
             transition={{ delay: 0.6, duration: 0.4 }}
             className="hidden md:block"
           >
-            <Button size="sm" shine>
+            <Button size="sm" shine onClick={handleBookDemo}>
               Book a Demo
             </Button>
           </motion.div>
@@ -200,8 +216,8 @@ export const Navbar = () => {
                     transition={{ delay: 0.4, duration: 0.3 }}
                     className="pt-4 border-t border-border/20"
                   >
-                    <Button className="w-full" shine>
-                      Get Started
+                    <Button className="w-full" shine onClick={handleBookDemo}>
+                      Book a Demo
                     </Button>
                   </motion.div>
                 </div>
