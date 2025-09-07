@@ -4,6 +4,7 @@ import { Geist, Geist_Mono, Instrument_Serif, Galada } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { V0Provider } from "@/lib/context"
+import { Toaster } from "@/components/ui/sonner"
 import dynamic from "next/dynamic"
 
 const V0Setup = dynamic(() => import("@/components/v0-setup"))
@@ -54,6 +55,7 @@ export default function RootLayout({
         <V0Provider isV0={isV0}>
           {children}
           {isV0 && <V0Setup />}
+          <Toaster />
         </V0Provider>
       </body>
     </html>

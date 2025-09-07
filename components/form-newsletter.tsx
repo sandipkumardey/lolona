@@ -5,12 +5,13 @@ import type { NewsletterSchema } from "@/lib/schema";
 import { useForm, useFormContext } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { newsletterSchema } from "@/lib/schema";
-import { subscribe } from "@/lib/subscribe";
+import { subscribe } from "@/lib/actions";
 import { useEffect, useState } from "react";
 import { ActionResult, cn } from "@/lib/utils";
 import { AlertTitle, alertVariants } from "./ui/alert";
 import { CheckCircledIcon, CrossCircledIcon } from "@radix-ui/react-icons";
 import { motion } from "framer-motion";
+import { toast } from "sonner";
 
 const SPRING = {
   type: "spring" as const,
@@ -87,14 +88,18 @@ export const FormNewsletter = ({
   async function onSubmit(values: NewsletterSchema) {
     const state = await subscribe(values.email);
 
-    setSubmissionState(state);
-
     if (state.success === true) {
       form.reset({ email: '' });
-    }
-
-    if (state.success === false) {
+      toast.success("Welcome to the waitlist! 🎉", {
+        description: "Your email has been successfully stored. Our team will connect with you shortly.",
+        duration: 5000,
+      });
+    } else {
       form.setError("email", { message: state.message });
+      toast.error("Oops! Something went wrong", {
+        description: state.message,
+        duration: 4000,
+      });
     }
   }
 

@@ -50,6 +50,9 @@ export const Navbar = () => {
         block: 'start',
       });
     }
+    
+    // Clean up URL by removing hash fragment
+    window.history.replaceState(null, '', window.location.pathname);
   };
 
   const handleBookDemo = () => {
