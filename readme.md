@@ -34,7 +34,7 @@ For too long, silence has shaped lives. Lolona gives young people the **clarity,
 - **Natural Language Processing**: Hugging Face Transformers  
 
 ### Backend & Deployment  
-- **Backend**: Python  
+- **Backend**: Python, TypeScript
 - **Infrastructure**: AWS, Docker  
 
 ### Developer Tools  
