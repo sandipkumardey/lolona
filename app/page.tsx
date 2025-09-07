@@ -51,7 +51,9 @@ export default function Home() {
           </section>
 
           {/* Video Section */}
-          <VideoPlayer src="/lolona-teaser.mp4" />
+          <section id="our-story">
+            <VideoPlayer src="/lolona-teaser.mp4" />
+          </section>
 
           {/* Companies Trust Section */}
           <CompaniesTrust />

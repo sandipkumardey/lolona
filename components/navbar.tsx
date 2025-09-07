@@ -37,6 +37,21 @@ export const Navbar = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsOpen(false); // Close mobile menu if open
+    
+    const targetId = href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+  };
+
   return (
     <>
       <motion.nav
@@ -74,16 +89,17 @@ export const Navbar = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1 + 0.3, duration: 0.4 }}
               >
-                <Link
+                <a
                   href={item.href}
+                  onClick={(e) => handleSmoothScroll(e, item.href)}
                   className={cn(
-                    "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
+                    "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer",
                     "hover:bg-primary/10 hover:text-primary",
                     "text-foreground/80 hover:text-foreground"
                   )}
                 >
                   {item.name}
-                </Link>
+                </a>
               </motion.div>
             ))}
           </div>
