@@ -35,7 +35,11 @@ const itemVariants = {
 
 export const CompaniesTrust = () => {
   return (
-    <section className="w-full py-20 px-inset bg-gradient-to-b from-background/50 to-background">
+    <section className="w-full py-20 px-inset bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+      {/* Background depth elements */}
+      <div className="absolute inset-0 bg-gradient-to-br from-red-900/20 via-transparent to-orange-900/20" />
+      <div className="absolute top-0 left-1/4 w-96 h-96 bg-red-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/5 rounded-full blur-3xl" />
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <motion.div
@@ -49,7 +53,7 @@ export const CompaniesTrust = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-sm font-medium text-muted-foreground/80 mb-4 uppercase tracking-widest"
+            className="text-sm font-medium text-slate-300/90 mb-4 uppercase tracking-widest relative z-10"
           >
             Trusted by leading organizations
           </motion.p>
@@ -57,14 +61,14 @@ export const CompaniesTrust = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-galada text-foreground leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-galada leading-tight relative z-10"
           >
-            <span className="text-muted-foreground/90">Our partners trust </span>
-            <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+            <span className="text-slate-200/90">Our partners trust </span>
+            <span className="text-white bg-gradient-to-r from-red-400 to-orange-400 bg-clip-text text-transparent">
               Lolona
             </span>
             <br className="hidden md:block" />
-            <span className="text-muted-foreground/90"> for empowering their communities</span>
+            <span className="text-slate-200/90"> for empowering their communities</span>
           </motion.h2>
         </motion.div>
 
@@ -86,25 +90,26 @@ export const CompaniesTrust = () => {
                 transition: { duration: 0.3, ease: "easeOut" }
               }}
               className={cn(
-                "group flex flex-col items-center justify-center",
+                "group flex flex-col items-center justify-center relative z-10",
                 "transition-all duration-500",
                 "cursor-pointer"
               )}
             >
               {/* Logo Container */}
               <div className={cn(
-                "w-32 h-24 mb-4 rounded-2xl flex items-center justify-center",
-                "bg-gradient-to-br from-primary/5 via-transparent to-accent/5",
-                "backdrop-blur-sm border border-primary/10",
-                "group-hover:border-primary/20 group-hover:shadow-lg group-hover:shadow-primary/10",
-                "transition-all duration-500"
+                "w-36 h-28 mb-4 rounded-3xl flex items-center justify-center relative overflow-hidden",
+                "bg-gradient-to-br from-white/95 via-slate-50/90 to-white/95",
+                "backdrop-blur-sm border border-white/20 shadow-2xl shadow-slate-900/40",
+                "group-hover:border-red-200/50 group-hover:shadow-2xl group-hover:shadow-red-500/30",
+                "group-hover:scale-105 transition-all duration-500",
+                "before:absolute before:inset-0 before:bg-gradient-to-br before:from-red-500/5 before:to-orange-500/5 before:opacity-0 before:group-hover:opacity-100 before:transition-opacity before:duration-500"
               )}>
                 <Image
                   src={company.logo}
                   alt={`${company.name} logo`}
-                  width={120}
-                  height={90}
-                  className="object-contain transition-all duration-500 group-hover:scale-110"
+                  width={140}
+                  height={105}
+                  className="object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
                   priority
                 />
               </div>
@@ -115,8 +120,8 @@ export const CompaniesTrust = () => {
                 whileInView={{ opacity: 1 }}
                 transition={{ delay: index * 0.1 + 0.6, duration: 0.4 }}
                 className={cn(
-                  "text-xs font-medium text-muted-foreground/70",
-                  "group-hover:text-foreground/90 transition-colors duration-300",
+                  "text-xs font-medium text-slate-400/80",
+                  "group-hover:text-slate-200/90 transition-colors duration-300",
                   "text-center uppercase tracking-wider"
                 )}
               >
