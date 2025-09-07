@@ -51,7 +51,7 @@ export const Newsletter = () => {
         layout="position"
         transition={{ duration: DURATION, ease: EASE_OUT }}
       >
-        <h1 className="font-serif text-5xl italic text-center short:lg:text-8xl sm:text-8xl lg:text-6xl text-foreground">
+        <h1 className="font-galada text-5xl text-center short:lg:text-8xl sm:text-8xl lg:text-6xl text-foreground">
         जहाँ नारी की शक्ति है, वहीं जीवन का विकास है।
         </h1>
       </motion.div>

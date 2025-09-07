@@ -57,7 +57,7 @@ export const CompaniesTrust = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.4, duration: 0.8 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-bold text-foreground leading-tight"
+            className="text-3xl md:text-4xl lg:text-5xl font-galada text-foreground leading-tight"
           >
             <span className="text-muted-foreground/90">Our partners trust </span>
             <span className="text-primary bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">

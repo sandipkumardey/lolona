@@ -8,6 +8,8 @@ import { Newsletter } from "@/components/newsletter";
 import { Navbar } from "@/components/navbar";
 import { AppLoader } from "@/components/app-loader";
 import { CompaniesTrust } from "@/components/companies-trust";
+import { VideoPlayer } from "@/components/video-player";
+import { HeroFooter } from "@/components/hero-footer";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -44,12 +46,18 @@ export default function Home() {
             <div className="relative h-full w-full p-inset">
               <Background src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alt-g7Cv2QzqL3k6ey3igjNYkM32d8Fld7.mp4" placeholder="/alt-placeholder.png" />
               <Newsletter />
-              <Footer />
+              <HeroFooter />
             </div>
           </section>
 
+          {/* Video Section */}
+          <VideoPlayer src="/lolona-teaser.mp4" />
+
           {/* Companies Trust Section */}
           <CompaniesTrust />
+
+          {/* Footer */}
+          <Footer />
         </>
       )}
     </main>

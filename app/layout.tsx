@@ -1,6 +1,6 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono, Instrument_Serif } from "next/font/google"
+import { Geist, Geist_Mono, Instrument_Serif, Galada } from "next/font/google"
 import "./globals.css"
 import { cn } from "@/lib/utils"
 import { V0Provider } from "@/lib/context"
@@ -25,6 +25,12 @@ const instrumentSerif = Instrument_Serif({
   style: ["normal", "italic"],
 })
 
+const galada = Galada({
+  variable: "--font-galada",
+  subsets: ["latin"],
+  weight: ["400"],
+})
+
 const isV0 = process.env["VERCEL_URL"]?.includes("vusercontent.net") ?? false
 
 export const metadata: Metadata = {
@@ -44,7 +50,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn(geistSans.variable, geistMono.variable, instrumentSerif.variable)}>
+      <body className={cn(geistSans.variable, geistMono.variable, instrumentSerif.variable, galada.variable)}>
         <V0Provider isV0={isV0}>
           {children}
           {isV0 && <V0Setup />}

@@ -34,6 +34,7 @@ module.exports = {
       },
       fontFamily: {
         serif: ["var(--font-instrument-serif)", "serif"],
+        galada: ["var(--font-galada)", "cursive"],
       },
       boxShadow: {
         button:

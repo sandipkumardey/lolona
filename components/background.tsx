@@ -43,8 +43,13 @@ const VideoWithPlaceholder = ({
         setVideoLoaded(true);
       };
 
+      const handleError = (e: Event) => {
+        console.error("Video loading error:", e);
+      };
+
       video.addEventListener("loadeddata", handleLoadedData);
       video.addEventListener("canplay", handleCanPlay);
+      video.addEventListener("error", handleError);
       video.load();
       
       if (video.readyState >= 2) {
@@ -54,13 +59,20 @@ const VideoWithPlaceholder = ({
       return () => {
         video.removeEventListener("loadeddata", handleLoadedData);
         video.removeEventListener("canplay", handleCanPlay);
+        video.removeEventListener("error", handleError);
       };
     }
   }, [src]);
 
   useEffect(() => {
     if (videoRef.current && videoLoaded) {
-      videoRef.current.play();
+      const playPromise = videoRef.current.play();
+      
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.error("Video play failed:", error);
+        });
+      }
     }
   }, [videoLoaded]);
 
@@ -84,6 +96,7 @@ const VideoWithPlaceholder = ({
         muted
         playsInline
         loop
+        autoPlay
         controls={false}
         preload="auto"
         className={cn(className, { invisible: !videoLoaded })}
