@@ -14,7 +14,7 @@ export const Footer = () => {
             Lolona
           </p>
           <p className="text-sm text-muted-foreground max-w-xs">
-            Empowering women and transforming communities across India since our founding.
+          From villages to cities, empowering women and transforming communities — one voice at a time.
           </p>
         </aside>
 

@@ -14,8 +14,8 @@ interface VideoPlayerProps {
 
 export const VideoPlayer = ({ 
   src, 
-  title = "Lolona Story", 
-  description = "Discover our mission to empower women and transform communities across India.",
+  title = "Our Story in 2 Minutes", 
+  description = "Silence has shaped too many lives. It shouldn't shape another.",
   className 
 }: VideoPlayerProps) => {
   const videoRef = useRef<HTMLVideoElement>(null);

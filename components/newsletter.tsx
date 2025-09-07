@@ -51,8 +51,9 @@ export const Newsletter = () => {
         layout="position"
         transition={{ duration: DURATION, ease: EASE_OUT }}
       >
-        <h1 className="font-galada text-5xl text-center short:lg:text-8xl sm:text-8xl lg:text-6xl text-foreground">
-        जहाँ नारी की शक्ति है, वहीं जीवन का विकास है।
+        <h1 className="font-galada text-5xl text-center short:lg:text-8xl sm:text-8xl lg:text-6xl text-foreground font-bold italic">
+        क्योंकि जहाँ चुप्पी टूटती है,<br />
+        वहीं नारी की शक्ति जगती है।
         </h1>
       </motion.div>
 
@@ -151,7 +152,7 @@ export const Newsletter = () => {
                   }}
                   className="text-base short:lg:text-lg sm:text-lg lg:text-xl !leading-[1.1] font-medium text-center text-foreground text-pretty"
                 >
-Join our community of changemakers and stay connected with Lolona's mission to empower women and transform communities across India.
+                  Be part of the change. Join Lolona’s mission to empower women and break taboos across India.
                 </motion.p>
               </div>
             </motion.div>
@@ -227,37 +228,39 @@ Join our community of changemakers and stay connected with Lolona's mission to e
             >
               <article className="relative overflow-y-auto italic p-6 h-full [&_p]:my-4">
                 <p>
-                  &quot;We stand at the forefront of a new era, where creativity
-                  meets technology to redefine what&apos;s possible. Our mission
-                  is to empower individuals and businesses alike with
-                  groundbreaking solutions that inspire change and drive
-                  progress.
+                  I still remember the day my younger sister got her first period.
+                  She was terrified.
                 </p>
                 <p>
-                  We stand at the forefront of a new era, where creativity meets
-                  technology to redefine what&apos;s possible. Our mission is to
-                  empower individuals and businesses alike with groundbreaking
-                  solutions that inspire change and drive progress.
+                  She didn&apos;t know what was happening, and 
+                  I didn&apos;t have the right words to comfort her.
                 </p>
                 <p>
-                  We believe in constant innovation, pushing boundaries to
-                  create products that are not just tools, but catalysts for
-                  transformation. We value simplicity, designing intuitive
-                  experiences that make complex tasks effortless and enjoyable.
-                  Our commitment to sustainability drives us to protect our
-                  planet while delivering exceptional value. We foster
-                  collaboration, building a community of thinkers, creators, and
-                  doers who share a vision for a better tomorrow.
+                  In our village, nobody talks about these things — not at school, not at home. All I saw was silence, confusion, and shame.
                 </p>
                 <p>
-                  Our promise is to deliver cutting-edge technology that is
-                  accessible, reliable, and tailored to meet the needs of our
-                  users. We will challenge the status quo, embrace change, and
-                  lead the charge towards a brighter, more innovative future.
+                  That moment stayed with me.
                 </p>
                 <p>
-                  Join us on this journey as we innovate, inspire, and ignite
-                  the spark of creativity in every corner of the globe.&quot;
+                  Because it&apos;s not just her story — it&apos;s the story of countless girls in rural communities, where taboos and stigma still silence the most basic conversations. Sisters, daughters, cousins, and friends who grow up without guidance, without safe spaces, and without voices they can trust.
+                </p>
+                <p>
+                  That&apos;s why I built Lolona.
+                </p>
+                <p>
+                  A voice-based AI companion that speaks your language, explains through stories and conversations, and feels less like an app — more like a trusted friend. Private, stigma-free, and always there to listen.
+                </p>
+                <p>
+                  This isn&apos;t just about health. It&apos;s about dignity, confidence, and breaking cycles of silence that have lasted for generations.
+                </p>
+                <p>
+                  Silence has shaped too many lives. It shouldn&apos;t shape another.
+                </p>
+                <p>
+                  Because when one girl in one village finds the courage to ask… thousands more will find the courage to answer.
+                </p>
+                <p>
+                  Lolona
                 </p>
               </article>
             </motion.div>
