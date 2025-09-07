@@ -9,10 +9,8 @@ import { cn } from "@/lib/utils";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
 
 const navItems = [
-  { name: "Home", href: "#home" },
-  { name: "About", href: "#about" },
-  { name: "Services", href: "#services" },
-  { name: "Contact", href: "#contact" },
+  { name: "Our Story", href: "#our-story" },
+  { name: "How it Works", href: "#how-it-works" },
 ];
 
 export const Navbar = () => {
@@ -167,17 +165,17 @@ export const Navbar = () => {
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: index * 0.1, duration: 0.3 }}
                     >
-                      <Link
+                      <a
                         href={item.href}
-                        onClick={() => setIsOpen(false)}
+                        onClick={(e) => handleSmoothScroll(e, item.href)}
                         className={cn(
-                          "block px-4 py-3 rounded-2xl text-base font-medium transition-all duration-200",
+                          "block px-4 py-3 rounded-2xl text-base font-medium transition-all duration-200 cursor-pointer",
                           "hover:bg-primary/10 hover:text-primary",
                           "text-foreground/80 hover:text-foreground"
                         )}
                       >
                         {item.name}
-                      </Link>
+                      </a>
                     </motion.div>
                   ))}
                   <motion.div
