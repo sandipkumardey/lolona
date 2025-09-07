@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer";
 import { Newsletter } from "@/components/newsletter";
 import { Navbar } from "@/components/navbar";
 import { AppLoader } from "@/components/app-loader";
+import { CompaniesTrust } from "@/components/companies-trust";
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(true);
@@ -27,7 +28,7 @@ export default function Home() {
   };
 
   return (
-    <main className="h-[100dvh] w-full">
+    <main className="min-h-screen w-full">
       <AnimatePresence mode="wait">
         {isLoading && !hasVisited && (
           <AppLoader key="loader" onLoadingComplete={handleLoadingComplete} />
@@ -37,11 +38,18 @@ export default function Home() {
       {(!isLoading || hasVisited) && (
         <>
           <Navbar />
-          <div className="relative h-full w-full p-inset">
-            <Background src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alt-g7Cv2QzqL3k6ey3igjNYkM32d8Fld7.mp4" placeholder="/alt-placeholder.png" />
-            <Newsletter />
-            <Footer />
-          </div>
+          
+          {/* Hero Section */}
+          <section className="h-[100dvh] w-full">
+            <div className="relative h-full w-full p-inset">
+              <Background src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/alt-g7Cv2QzqL3k6ey3igjNYkM32d8Fld7.mp4" placeholder="/alt-placeholder.png" />
+              <Newsletter />
+              <Footer />
+            </div>
+          </section>
+
+          {/* Companies Trust Section */}
+          <CompaniesTrust />
         </>
       )}
     </main>

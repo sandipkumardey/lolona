@@ -5,13 +5,13 @@
 @layer base {
   :root {
     /* Controls page background */
-    --background: 0 0% 100%;
+    --background: 0 100% 23.5%;
     /* Controls text color */
-    --foreground: 0 0% 98%;
+    --foreground: 42 44% 91%;
     /* Controls button color */
-    --primary: 0 0% 98%;
+    --primary: 42 44% 91%;
     /* Controls filled button text color */
-    --primary-foreground: 0 0% 9%;
+    --primary-foreground: 0 100% 23.5%;
     /* Component variables */
     --card: 0 0% 100%;
     --card-foreground: 0 0% 3.9%;
@@ -46,7 +46,7 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: 240 2% 8%;
+    --background: 0 100% 23.5%;
   }
 }
 
