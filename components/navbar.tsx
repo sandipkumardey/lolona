@@ -101,7 +101,7 @@ export const Navbar = () => {
             className="hidden md:block"
           >
             <Button size="sm" shine>
-              Get Started
+              Book a Demo
             </Button>
           </motion.div>
 
