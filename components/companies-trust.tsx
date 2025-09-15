@@ -8,6 +8,7 @@ const companies = [
   { name: "Rangeen Khidki", logo: "/rkflogo_black.png" },
   { name: "Global Shapers Kolkata", logo: "/gsk.png" },
   { name: "Orange Window", logo: "/orangew.png" },
+  { name: "The Period Protection Project", logo: "/PPP.jpeg" },
 ];
 
 const containerVariants = {
@@ -109,7 +110,12 @@ export const CompaniesTrust = () => {
                   alt={`${company.name} logo`}
                   width={140}
                   height={105}
-                  className="object-contain transition-all duration-500 group-hover:scale-110 relative z-10"
+                  className={cn(
+                    "transition-all duration-500 group-hover:scale-110 relative z-10",
+                    company.name === "The Period Protection Project" 
+                      ? "object-cover rounded-2xl w-32 h-24" 
+                      : "object-contain"
+                  )}
                   priority
                 />
               </div>
