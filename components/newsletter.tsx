@@ -8,6 +8,12 @@ import { cn } from "@/lib/utils";
 import { ArrowRightIcon, Cross1Icon } from "@radix-ui/react-icons";
 import { inputVariants } from "./ui/input";
 import { useIsV0 } from "@/lib/context";
+import dynamic from "next/dynamic";
+
+const WaitlistCounter = dynamic(() => import("./waitlist-counter").then(mod => ({ default: mod.WaitlistCounter })), {
+  ssr: false,
+  loading: () => null
+});
 
 const DURATION = 0.3;
 const DELAY = DURATION;
@@ -46,12 +52,15 @@ export const Newsletter = () => {
   }, []);
 
   return (
-    <div className="flex overflow-hidden relative flex-col gap-4 justify-center items-center pt-10 w-full h-full short:lg:pt-10 pb-footer-safe-area 2xl:pt-footer-safe-area px-sides short:lg:gap-4 lg:gap-8">
+    <div className="flex overflow-hidden relative flex-col gap-2 justify-center items-center pt-8 w-full h-full short:lg:pt-8 pb-footer-safe-area 2xl:pt-footer-safe-area px-sides short:lg:gap-3 lg:gap-4">
+      <WaitlistCounter />
+      
       <motion.div
         layout="position"
         transition={{ duration: DURATION, ease: EASE_OUT }}
+        className="mb-2"
       >
-        <h1 className="font-galada text-5xl text-center short:lg:text-8xl sm:text-8xl lg:text-6xl text-foreground font-bold italic">
+        <h1 className="font-galada text-5xl text-center short:lg:text-8xl sm:text-8xl lg:text-6xl text-foreground font-bold italic leading-tight">
         क्योंकि जहाँ चुप्पी टूटती है,<br />
         वहीं नारी की शक्ति जगती है।
         </h1>
@@ -85,7 +94,7 @@ export const Newsletter = () => {
                 },
               }}
             >
-              <div className="flex flex-col gap-4 w-full max-w-xl md:gap-6 lg:gap-8">
+              <div className="flex flex-col gap-3 w-full max-w-xl md:gap-4 lg:gap-5">
                 <FormNewsletter
                   input={(props) => (
                     /* @ts-expect-error - Type mismatch */
@@ -152,7 +161,7 @@ export const Newsletter = () => {
                   }}
                   className="text-base short:lg:text-lg sm:text-lg lg:text-xl !leading-[1.1] font-medium text-center text-foreground text-pretty"
                 >
-                  Be part of the change. Join Lolona’s mission to empower women and break taboos across India.
+                  Be part of the change. Join Lolona's mission to empower women and break taboos across India.
                 </motion.p>
               </div>
             </motion.div>
