@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { createClient } from "@/utils/supabase/server";
 import Iridescence from "@/components/iridescence";
+import DashboardWidget from "@/components/dashboard-widget";
 
 export default async function DashboardPage() {
   const hasEnv = !!process.env.NEXT_PUBLIC_SUPABASE_URL && !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -24,6 +25,7 @@ export default async function DashboardPage() {
             {/* Additional page content goes here */}
           </div>
         </div>
+        <DashboardWidget />
       </main>
     );
   }
@@ -55,6 +57,7 @@ export default async function DashboardPage() {
           {/* Additional page content goes here */}
         </div>
       </div>
+      <DashboardWidget />
     </main>
   );
 }
