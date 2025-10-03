@@ -80,12 +80,15 @@ export const Navbar = () => {
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
           "px-inset py-4",
-          scrolled
-            ? "backdrop-blur-xl bg-background/80 border-b border-border/20"
-            : "bg-transparent"
+          // Always visible on mobile: light blur + border for contrast
+          "backdrop-blur-xl bg-background/80 border-b border-border/20 md:backdrop-blur-0 md:border-0",
+          // On md+ retain scroll-based background behavior
+          scrolled && "md:backdrop-blur-xl md:bg-background/80 md:border-b md:border-border/20 md:shadow-sm",
+          // Force black text on mobile for legibility
+          "text-black md:text-foreground"
         )}
       >
-        <div className="flex items-center justify-between max-w-7xl mx-auto">
+        <div className="flex items-center justify-between max-w-7xl mx-auto" style={{ paddingTop: "env(safe-area-inset-top)" }}>
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
@@ -93,7 +96,7 @@ export const Navbar = () => {
             className="relative z-10"
           >
             <Link href="/" className="flex items-center">
-              <span className="text-5xl font-galada text-foreground">
+              <span className="text-5xl font-galada text-[#EFE5D6] md:text-foreground">
                 Lolona
               </span>
             </Link>
@@ -142,7 +145,7 @@ export const Navbar = () => {
             onClick={() => setIsOpen(!isOpen)}
             className={cn(
               buttonVariants({ variant: "ghost", size: "icon" }),
-              "md:hidden relative z-10"
+              "md:hidden relative z-10 text-[#EFE5D6] md:text-foreground"
             )}
           >
             <AnimatePresence mode="wait">
@@ -181,7 +184,7 @@ export const Navbar = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed inset-0 bg-background/80 backdrop-blur-xl z-40 md:hidden"
+              className="fixed inset-0 bg-background/85 backdrop-blur-xl z-40 md:hidden"
               onClick={() => setIsOpen(false)}
             />
             <motion.div
@@ -191,7 +194,7 @@ export const Navbar = () => {
               transition={{ duration: 0.3, ease: "easeOut" }}
               className="fixed top-20 left-inset right-inset z-40 md:hidden"
             >
-              <div className="bg-card/95 backdrop-blur-xl border border-border/50 rounded-3xl p-6 shadow-button">
+              <div className="bg-card/95 text-black md:text-foreground backdrop-blur-xl border border-border/50 rounded-3xl p-6 shadow-button">
                 <div className="flex flex-col space-y-4">
                   {navItems.map((item, index) => (
                     <motion.div
@@ -204,9 +207,9 @@ export const Navbar = () => {
                         href={item.href}
                         onClick={(e) => handleSmoothScroll(e, item.href)}
                         className={cn(
-                          "block px-4 py-3 rounded-2xl text-base font-medium transition-all duration-200 cursor-pointer",
+                          "block px-4 py-3 rounded-2xl text-base font-semibold transition-all duration-200 cursor-pointer",
                           "hover:bg-primary/10 hover:text-primary",
-                          "text-foreground/80 hover:text-foreground"
+                          "text-black md:text-foreground"
                         )}
                       >
                         {item.name}
@@ -219,7 +222,7 @@ export const Navbar = () => {
                     transition={{ delay: 0.4, duration: 0.3 }}
                     className="pt-4 border-t border-border/20"
                   >
-                    <Button className="w-full" shine onClick={handleBookDemo}>
+                    <Button className="w-full text-black md:text-foreground" shine onClick={handleBookDemo}>
                       Book a Demo
                     </Button>
                   </motion.div>
