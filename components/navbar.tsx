@@ -133,9 +133,14 @@ export const Navbar = () => {
             transition={{ delay: 0.6, duration: 0.4 }}
             className="hidden md:block"
           >
-            <Button size="sm" shine onClick={handleBookDemo}>
-              Book a Demo
-            </Button>
+            <div className="flex items-center gap-2">
+              <Button size="sm" variant="default" className="rounded-full" asChild>
+                <Link href="/demo">Demo</Link>
+              </Button>
+              <Button size="sm" shine onClick={handleBookDemo}>
+                Book a Demo
+              </Button>
+            </div>
           </motion.div>
 
           {/* Mobile Menu Button */}
@@ -222,9 +227,14 @@ export const Navbar = () => {
                     transition={{ delay: 0.4, duration: 0.3 }}
                     className="pt-4 border-t border-border/20"
                   >
-                    <Button className="w-full text-black md:text-foreground" shine onClick={handleBookDemo}>
-                      Book a Demo
-                    </Button>
+                    <div className="flex gap-3">
+                      <Button className="flex-1 rounded-full" variant="default" asChild>
+                        <Link href="/demo">Demo</Link>
+                      </Button>
+                      <Button className="flex-1 text-black md:text-foreground" shine onClick={handleBookDemo}>
+                        Book a Demo
+                      </Button>
+                    </div>
                   </motion.div>
                 </div>
               </div>
