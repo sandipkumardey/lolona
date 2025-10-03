@@ -83,7 +83,19 @@ export default function DashboardWidget() {
                     <CardTitle>Talk to Lolona</CardTitle>
                   </CardHeader>
                   <CardContent className="text-sm text-muted-foreground">
-                    This is your widget. Add any content or controls here.
+                    <div className="flex flex-col items-center justify-center py-6">
+                      <Image
+                        src="/cd.gif"
+                        alt="Animated CD"
+                        width={180}
+                        height={180}
+                        unoptimized
+                        className="h-40 w-40"
+                      />
+                      <p className="mt-4 text-center max-w-sm">
+                        This is your widget. Add any content or controls here.
+                      </p>
+                    </div>
                   </CardContent>
                 </Card>
               </motion.div>
