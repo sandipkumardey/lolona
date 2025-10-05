@@ -7,6 +7,8 @@ import { Button, buttonVariants } from "./ui/button";
 import { Logo } from "./icons/logo";
 import { cn } from "@/lib/utils";
 import { HamburgerMenuIcon, Cross1Icon } from "@radix-ui/react-icons";
+import { createClient as createBrowserSupabase } from "@/utils/supabase/client";
+import { signOut } from "@/app/actions/auth";
 
 const navItems = [
   { name: "Our Story", href: "#our-story" },
@@ -17,41 +19,30 @@ export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Scroll state
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-
+    const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close mobile menu on ESC
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") {
-        setIsOpen(false);
-      }
+      if (event.key === "Escape") setIsOpen(false);
     };
-
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, []);
 
   const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
-    setIsOpen(false); // Close mobile menu if open
-    
+    setIsOpen(false);
     const targetId = href.replace('#', '');
     const targetElement = document.getElementById(targetId);
-    
     if (targetElement) {
-      targetElement.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    
-    // Clean up URL by removing hash fragment
     window.history.replaceState(null, '', window.location.pathname);
   };
 
@@ -140,6 +131,7 @@ export const Navbar = () => {
               <Button size="sm" shine onClick={handleBookDemo}>
                 Book a Demo
               </Button>
+              <AuthButtonsDesktop />
             </div>
           </motion.div>
 
@@ -235,6 +227,9 @@ export const Navbar = () => {
                         Book a Demo
                       </Button>
                     </div>
+                    <div className="mt-3">
+                      <AuthButtonsMobile />
+                    </div>
                   </motion.div>
                 </div>
               </div>
@@ -245,3 +240,53 @@ export const Navbar = () => {
     </>
   );
 };
+
+// --- Auth helpers (module scope) ---
+function useAuthUser() {
+  const [user, setUser] = useState<import("@supabase/supabase-js").User | null>(null);
+  const [mounted, setMounted] = useState(false);
+  useEffect(() => {
+    setMounted(true);
+    const supabase = createBrowserSupabase();
+    supabase.auth.getUser().then(({ data }) => setUser(data.user));
+    const { data: subscription } = supabase.auth.onAuthStateChange((_e, session) => {
+      setUser(session?.user ?? null);
+    });
+    return () => subscription.subscription.unsubscribe();
+  }, []);
+  return { user, mounted } as const;
+}
+
+function AuthButtonsDesktop() {
+  const { user, mounted } = useAuthUser();
+  if (!mounted) return null;
+  if (user) {
+    return (
+      <form action={signOut}>
+        <Button size="sm" type="submit">Sign out</Button>
+      </form>
+    );
+  }
+  return (
+    <Button size="sm" variant="default" asChild>
+      <Link href="/login">Log in</Link>
+    </Button>
+  );
+}
+
+function AuthButtonsMobile() {
+  const { user, mounted } = useAuthUser();
+  if (!mounted) return null;
+  if (user) {
+    return (
+      <form action={signOut}>
+        <Button className="w-full" type="submit">Sign out</Button>
+      </form>
+    );
+  }
+  return (
+    <Button className="w-full" variant="default" asChild>
+      <Link href="/login">Log in</Link>
+    </Button>
+  );
+}

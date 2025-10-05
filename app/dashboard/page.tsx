@@ -31,8 +31,8 @@ export default async function DashboardPage() {
   } = await supabase.auth.getUser();
 
   if (!user) {
-    // Not logged in – redirect to landing (or /login when implemented)
-    redirect("/");
+    // Not logged in – redirect to login
+    redirect("/login");
   }
 
   return (
