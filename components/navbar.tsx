@@ -125,9 +125,6 @@ export const Navbar = () => {
             className="hidden md:block"
           >
             <div className="flex items-center gap-2">
-              <Button size="sm" variant="default" className="rounded-full" asChild>
-                <Link href="/demo">Demo</Link>
-              </Button>
               <Button size="sm" shine onClick={handleBookDemo}>
                 Book a Demo
               </Button>
@@ -220,10 +217,7 @@ export const Navbar = () => {
                     className="pt-4 border-t border-border/20"
                   >
                     <div className="flex gap-3">
-                      <Button className="flex-1 rounded-full" variant="default" asChild>
-                        <Link href="/demo">Demo</Link>
-                      </Button>
-                      <Button className="flex-1 text-black md:text-foreground" shine onClick={handleBookDemo}>
+                      <Button className="w-full text-black md:text-foreground" shine onClick={handleBookDemo}>
                         Book a Demo
                       </Button>
                     </div>
