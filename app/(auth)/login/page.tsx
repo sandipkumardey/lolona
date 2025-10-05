@@ -5,6 +5,7 @@ import { createClient } from "@/utils/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Iridescence from "@/components/iridescence";
 
 export default function LoginPage() {
   const supabase = createClient();
@@ -41,32 +42,46 @@ export default function LoginPage() {
   };
 
   return (
-    <main className="min-h-[100dvh] flex items-center justify-center px-6">
-      <Card className="w-full max-w-md">
-        <CardHeader>
-          <CardTitle className="text-2xl">Sign in</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <form onSubmit={handleEmail} className="space-y-4">
-            <div>
-              <label className="block text-sm mb-1">Email</label>
-              <Input type="email" required value={email} onChange={(e) => setEmail(e.target.value)} placeholder="you@example.com" />
-            </div>
-            <Button type="submit" className="w-full" disabled={status === "sending" || cooldown > 0}>
-              {status === "sending" ? "Sending..." : cooldown > 0 ? `Resend in ${cooldown}s` : "Send magic link"}
-            </Button>
-          </form>
+    <main className="relative min-h-[100dvh] w-full overflow-hidden">
+      <Iridescence className="absolute inset-0 w-full h-full" color={[0.85, 0.06, 0.06]} speed={0.35} amplitude={0.06} mouseReact={false} />
+      <div className="relative z-10 flex items-center justify-center min-h-[100dvh] px-6">
+        <Card className="w-full max-w-md rounded-3xl border border-border/50 bg-white/90 backdrop-blur-xl shadow-xl">
+          <CardHeader>
+            <CardTitle className="font-serif text-3xl md:text-4xl">Sign in</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <form onSubmit={handleEmail} className="space-y-5">
+              <div>
+                <label className="block text-sm mb-2 text-foreground/90">Email</label>
+                <Input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="you@example.com"
+                  className="rounded-full bg-white/80 border-white/60 shadow-sm text-black placeholder:text-neutral-400 caret-black"
+                />
+              </div>
+              <Button
+                type="submit"
+                className="w-full rounded-full bg-[#7A0A0A] text-[#EFE5D6] hover:bg-[#650808] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#EFE5D6] shadow-md disabled:opacity-70 disabled:hover:bg-[#7A0A0A]"
+                disabled={status === "sending" || cooldown > 0}
+              >
+                {status === "sending" ? "Sending..." : cooldown > 0 ? `Resend in ${cooldown}s` : "Send magic link"}
+              </Button>
+            </form>
 
-          {status === "sent" && (
-            <p className="mt-4 text-sm text-green-600">Check your email for the login link.</p>
-          )}
-          {error && (
-            <p className="mt-4 text-sm text-red-600">
-              {error.toLowerCase().includes("rate") ? "Too many attempts. Please wait a bit before retrying." : error}
-            </p>
-          )}
-        </CardContent>
-      </Card>
+            {status === "sent" && (
+              <p className="mt-4 text-sm text-green-700">Check your email for the login link.</p>
+            )}
+            {error && (
+              <p className="mt-4 text-sm text-red-600">
+                {error.toLowerCase().includes("rate") ? "Too many attempts. Please wait a bit before retrying." : error}
+              </p>
+            )}
+          </CardContent>
+        </Card>
+      </div>
     </main>
   );
 }
