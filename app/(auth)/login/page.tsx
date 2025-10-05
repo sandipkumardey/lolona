@@ -14,7 +14,7 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [cooldown, setCooldown] = useState(0);
 
-  const redirectTo = typeof window !== "undefined" ? `${window.location.origin}/dashboard` : "/dashboard";
+  const redirectTo = typeof window !== "undefined" ? `${window.location.origin}/auth/callback` : "/auth/callback";
 
   const handleEmail = async (e: React.FormEvent) => {
     e.preventDefault();
