@@ -216,12 +216,7 @@ export const Navbar = () => {
                     transition={{ delay: 0.4, duration: 0.3 }}
                     className="pt-4 border-t border-border/20"
                   >
-                    <div className="flex gap-3">
-                      <Button className="w-full text-black md:text-foreground" shine onClick={handleBookDemo}>
-                        Book a Demo
-                      </Button>
-                    </div>
-                    <div className="mt-3">
+                    <div className="mt-1">
                       <AuthButtonsMobile />
                     </div>
                   </motion.div>
@@ -274,12 +269,20 @@ function AuthButtonsMobile() {
   if (user) {
     return (
       <form action={signOut}>
-        <Button className="w-full" type="submit">Sign out</Button>
+        <Button
+          className="w-full rounded-full bg-[#7A0A0A] text-[#EFE5D6] hover:bg-[#650808] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#EFE5D6] shadow-md"
+          type="submit"
+        >
+          Sign out
+        </Button>
       </form>
     );
   }
   return (
-    <Button className="w-full" variant="default" asChild>
+    <Button
+      className="w-full rounded-full bg-[#7A0A0A] text-[#EFE5D6] hover:bg-[#650808] focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#EFE5D6] shadow-md"
+      asChild
+    >
       <Link href="/login">Log in</Link>
     </Button>
   );
