@@ -4,6 +4,7 @@ import Iridescence from "@/components/iridescence";
 import DashboardWidget from "@/components/dashboard-widget";
 import { Button } from "@/components/ui/button";
 import { signOut } from "@/app/actions/auth";
+import LockScroll from "@/components/lock-scroll";
 
 export default async function DashboardPage() {
   const hasEnv = !!process.env.NEXT_PUBLIC_SUPABASE_URL && !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
@@ -11,7 +12,8 @@ export default async function DashboardPage() {
   // If env is not configured, skip auth to allow page development.
   if (!hasEnv) {
     return (
-      <main className="min-h-[100dvh] w-full bg-background text-foreground overflow-hidden">
+      <main className="h-[100dvh] w-full bg-background text-foreground overflow-hidden">
+        <LockScroll />
         {/* Full-width hero with iridescence background */}
         <section className="relative w-full h-[100dvh]">
           <Iridescence className="absolute inset-0 w-full h-full" color={[0.85,0.06,0.06]} speed={0.35} amplitude={0.06} mouseReact={false} />
@@ -38,7 +40,8 @@ export default async function DashboardPage() {
   }
 
   return (
-    <main className="min-h-[100dvh] w-full bg-background text-foreground overflow-hidden">
+    <main className="h-[100dvh] w-full bg-background text-foreground overflow-hidden">
+      <LockScroll />
       {/* Full-width hero with iridescence background */}
       <section className="relative w-full h-[100dvh]">
         <Iridescence className="absolute inset-0 w-full h-full" color={[0.85,0.06,0.06]} speed={0.35} amplitude={0.06} mouseReact={false} />
