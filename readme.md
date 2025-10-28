@@ -59,7 +59,7 @@ Lolona solves this by creating a **trusted, voice-first experience**:
 
 This isn’t just about health. It’s about **dignity, confidence, and breaking cycles of silence** that have lasted for generations.
 
---
+---
 
 ## 🌱 Upcoming Features & Evolution Path
 
