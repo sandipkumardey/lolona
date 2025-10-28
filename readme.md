@@ -57,7 +57,17 @@ Lolona solves this by creating a **trusted, voice-first experience**:
 - Provides science, stories, and tips through natural conversations  
 - Ensures privacy, dignity, and safety at every step  
 
-This isn’t just about health. It’s about **dignity, confidence, and breaking cycles of silence** that have lasted for generations.  
+This isn’t just about health. It’s about **dignity, confidence, and breaking cycles of silence** that have lasted for generations.
+
+--
+
+## 🌱 Upcoming Features & Evolution Path
+
+- [ ] Regional Language Support  
+- [ ] Emotional UX for Microinteractions  
+- [ ] Echo Mode (Emotional Mirroring)  
+- [ ] Whisper Stories  
+- [ ] Empathy Benchmarking  
 
 ---
 
